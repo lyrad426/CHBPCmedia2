@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>In Defense of Truth Weekly Broadcast</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #2e6f40;
+	  color: white;
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      display: none;
+    }
+    .overlay iframe {
+      width: 80vw;
+      height: 45vw;
+      max-width: 960px;
+      max-height: 540px;
+      border: none;
+    }
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+  </style>
+</head>
+<body>
+  <p align="center"><font size="7">Weekly Broadcasts</font><br><font size="6">In Defense of Truth</font></p>
+  <p>
+   <table align="center" border="0" cellpadding="5" cellspacing="0">
+    <tr>
+	 <td><button class="open-btn" onclick="openVideo('JLacmEnr_kI')"><img src="tape.png" width="50%"></button></td>
+	 <td>June 22, 2025<br></td>
+	</tr>
+    <tr>
+	 <td><button class="open-btn" onclick="openVideo('JLacmEnr_kI')"><img src="tape.png" width="50%"></button></td>
+	 <td>June 15, 2025<br></td>
+	</tr>
+    <tr>
+	 <td><button class="open-btn" onclick="openVideo('JLacmEnr_kI')"><img src="tape.png" width="50%"></button></td>
+	 <td>June 8, 2025<br></td>
+	</tr>
+    <tr>
+	 <td><button class="open-btn" onclick="openVideo('JLacmEnr_kI')"><img src="tape.png" width="50%"></button></td>
+	 <td>June 1, 2025<br></td>
+	</tr>
+   </table>
+
+
+  <div class="overlay" id="videoOverlay">
+    <div class="close-btn" onclick="closeVideo()">&times;</div>
+    <iframe id="youtubePlayer" src="" allowfullscreen></iframe>
+  </div>
+
+  <script>
+    function openVideo(videoId) {
+      const overlay = document.getElementById("videoOverlay");
+      const player = document.getElementById("youtubePlayer");
+      player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+      overlay.style.display = "flex";
+    }
+
+    function closeVideo() {
+      const overlay = document.getElementById("videoOverlay");
+      const player = document.getElementById("youtubePlayer");
+      player.src = "";
+      overlay.style.display = "none";
+    }
+  </script>
+</body>
+</html>

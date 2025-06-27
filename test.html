@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dynamic RSS Feed</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #111;
+      color: #eee;
+      padding: 2rem;
+    }
+    h1 {
+      color: #f39c12;
+    }
+    .feed-item {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #444;
+      padding-bottom: 1rem;
+    }
+    a {
+      color: #1abc9c;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    small {
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <h1>RSS Feed Viewer</h1>
+  <div id="rss-feed">Loading...</div>
+
+  <script>
+    const feedUrl = 'https://cors-anywhere.herokuapp.com/https://feeds.bbci.co.uk/news/rss.xml'; // Use a CORS proxy
+
+    fetch(feedUrl)
+      .then(res => res.text())
+      .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+      .then(data => {
+        const items = data.querySelectorAll("item");
+        const container = document.getElementById("rss-feed");
+        container.innerHTML = "";
+
+        items.forEach((item, i) => {
+          if (i >= 10) return; // Show only first 10
+          const title = item.querySelector("title").textContent;
+          const link = item.querySelector("link").textContent;
+          const pubDate = item.querySelector("pubDate").textContent;
+
+          const div = document.createElement("div");
+          div.className = "feed-item";
+          div.innerHTML = `
+            <a href="${link}" target="_blank"><h2>${title}</h2></a>
+            <small>${pubDate}</small>
+          `;
+          container.appendChild(div);
+        });
+      })
+      .catch(err => {
+        document.getElementById("rss-feed").innerHTML = "Failed to load feed ??";
+        console.error("RSS fetch error:", err);
+      });
+  </script>
+</body>
+</html>

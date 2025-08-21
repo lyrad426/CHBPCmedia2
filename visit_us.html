@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visit Us at Cub Hill Church</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body, html {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden; /* Prevent scrollbars */
+    }
+   .outlined-text {
+     color: white;
+     text-shadow:
+    	-1px -1px 0 #000,  
+     	 1px -1px 0 #000,
+    	-1px  1px 0 #000,
+     	 1px  1px 0 #000;
+    }
+
+    /* Fullscreen iframe background */
+    #bg-iframe {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      border: none;
+      z-index: -1; /* put it behind all content */
+    }
+
+    /* Foreground content styling */
+    .content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding-top: 10vh;
+      font-size: 2em;
+      width: 100vw;
+      height: 80vh;
+    }
+    .container {
+      display: flex;
+      width: 100%;
+      height: 100vh;
+    }
+    .left-column {
+      width: 75%;
+      padding: 5px;
+    }
+    .right-column {
+      width: 25%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .resizing-text {
+      width: 100%;
+      text-align: center;
+      font-size: clamp(1rem, 2vw, 2rem);
+      line-height: 1.4;
+    }
+    .map {
+      width: 75vw;
+      height: 85vh;
+    }
+  </style>
+</head>
+<body>
+  <!-- Background iframe -->
+  <iframe 
+    id="bg-iframe" 
+    src="https://www.google.com/maps/embed?pb=!4v1755810055314!6m8!1m7!1srrLuZYG6HpXrx-HpwPXgkw!2m2!1d39.4107663065117!2d-76.5130505060536!3f239!4f-7.909999999999997!5f0.7820865974627469" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+    allowfullscreen>
+  </iframe>
+
+  <!-- Foreground content -->
+  <div class="container">
+    <div class="left-column">
+     <p align="center"><font size="6" class="outlined-text">Visit Us</font></p>
+     <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3082.582645285427!2d-76.51629812418389!3d39.410947271618966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c8090e2cf91db5%3A0xe810d851dff7e9f1!2sThe%20Cub%20Hill%20Bible%20Presbyterian%20Church!5e0!3m2!1sen!2sus!4v1753302456335!5m2!1sen!2sus" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="right-column">
+      <div class="resizing-text">2927 Cub Hill Rd</div>
+      <div class="resizing-text">Baltimore, MD 21234</div>
+    </div>
+  </div>
+</body>
+</html>

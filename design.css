@@ -1,0 +1,234 @@
+/* =====================================================
+Cub Hill Church Shared Site Styles
+Version: 1.0
+===================================================== */
+
+/* ---------- Design Tokens ---------- */
+
+:root {
+
+--church-text: #BFE4FF;
+--pastor-text: #C8FFD0;
+--faith-text: #FFE0B3;
+	
+--color-church: #2266AA;
+--color-church-light: #4E8CC8;
+
+--color-pastor: #228B22;
+--color-pastor-light: #5DAF5D;
+
+--color-faith: #CC6600;
+--color-faith-light: #E59642;
+
+--color-bg: #F4F7FB;
+--color-surface: #FFFFFF;
+--color-text: #243447;
+--color-muted: #5E6B78;
+--color-border: #E3E8EF;
+
+--radius-sm: 10px;
+--radius-md: 16px;
+--radius-lg: 24px;
+
+--shadow-sm:
+    0 2px 8px rgba(0,0,0,.05);
+
+--shadow-md:
+    0 6px 18px rgba(0,0,0,.08);
+
+--shadow-lg:
+    0 12px 32px rgba(0,0,0,.10);
+
+--container-width: 1200px;
+```
+
+}
+
+/* ---------- Reset ---------- */
+
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+body {
+margin: 0;
+background: var(--color-bg);
+color: var(--color-text);
+font-family:
+"Segoe UI",
+Arial,
+sans-serif;
+line-height: 1.7;
+}
+
+/* ---------- Typography ---------- */
+
+h1,
+h2,
+h3,
+h4 {
+margin-top: 0;
+color: var(--color-text);
+line-height: 1.2;
+}
+
+.page-title {
+text-align: center;
+font-size: clamp(2rem, 4vw, 3rem);
+margin-bottom: 2rem;
+}
+
+/* ---------- Layout ---------- */
+
+.container {
+max-width: var(--container-width);
+margin: 0 auto;
+padding: 24px;
+}
+
+/* ---------- Cards ---------- */
+
+.card {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: 2rem;
+    position: relative;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,.12),
+            rgba(255,255,255,0)
+        );
+
+    pointer-events: none;
+}
+
+.card-church {
+    background:
+        linear-gradient(
+            135deg,
+            #2266AA 0%,
+            #2F78C4 100%
+        );
+    color: #87CEEB;
+}
+
+.card-church h2 {
+    color: var(--church-text);
+}
+
+.card-pastor {
+    background:
+        linear-gradient(
+            135deg,
+            #228B22 0%,
+            #2FA12F 100%
+        );
+    color: #98FB98;
+}
+
+.card-pastor h2 {
+    color: var(--pastor-text);
+}
+
+.card-faith {
+    background:
+        linear-gradient(
+            135deg,
+            #CC6600 0%,
+            #E07A16 100%
+        );
+    color: #FFCC80;
+}
+
+.card-faith h2 {
+    color: var(--faith-text);
+}
+
+/* ---------- Contact Grid ---------- */
+
+.contact-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 2rem;
+}
+
+/* ---------- Images ---------- */
+
+.float-image {
+float: left;
+width: min(350px, 40%);
+margin: 0 24px 20px 0;
+border-radius: var(--radius-md);
+box-shadow: var(--shadow-md);
+}
+
+/* ---------- Links ---------- */
+
+a {
+color: var(--color-primary);
+text-decoration: none;
+}
+
+a:hover {
+text-decoration: underline;
+}
+
+/* ---------- Lists ---------- */
+
+.faith-list li {
+margin-bottom: 1rem;
+}
+
+/* ---------- Utilities ---------- */
+
+.text-center {
+text-align: center;
+}
+
+.clearfix::after {
+content: "";
+display: block;
+clear: both;
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 768px) {
+
+
+.container {
+    padding: 16px;
+}
+
+.card {
+    padding: 1.25rem;
+}
+
+.contact-grid {
+    grid-template-columns: 1fr;
+}
+
+.float-image {
+    float: none;
+    width: 100%;
+    margin: 0 0 1.25rem 0;
+}
+
+
+}

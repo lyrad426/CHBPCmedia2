@@ -172,7 +172,8 @@ gap: 2rem;
 
 .float-image {
 float: left;
-width: min(350px, 40%);
+width: 30%;
+height: auto;
 margin: 0 24px 20px 0;
 border-radius: var(--radius-md);
 box-shadow: var(--shadow-md);

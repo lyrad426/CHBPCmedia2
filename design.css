@@ -172,9 +172,9 @@ gap: 2rem;
 
 .float-image {
 float: left;
-width: 30vw;
+width: max(30%, 575px);
 height: auto;
-margin: 0 12px 12px 0;
+margin: 0 24px 20px 0;
 border-radius: var(--radius-md);
 box-shadow: var(--shadow-md);
 }
@@ -227,8 +227,9 @@ clear: both;
 
 .float-image {
     float: none;
-    width: 30vw;
-    margin: 0 0 1.25rem 0;
+    width: min(30%, 260px);
+	height: auto;
+    margin: 0 20px 12px 0;
 }
 
 

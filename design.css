@@ -1,71 +1,29 @@
 /* =====================================================
-Cub Hill Church Shared Site Styles
-Version: 1.0
-===================================================== */
+   Cub Hill Church — Shared Site Styles
+   Mobile / Tablet First
+   ===================================================== */
 
-/* ---------- Design Tokens ---------- */
-
-:root {
-
---church-text: #BFE4FF;
---pastor-text: #C8FFD0;
---faith-text: #FFE0B3;
-	
---color-church: #2266AA;
---color-church-light: #4E8CC8;
-
---color-pastor: #228B22;
---color-pastor-light: #5DAF5D;
-
---color-faith: #CC6600;
---color-faith-light: #E59642;
-
---color-bg: #F4F7FB;
---color-surface: #FFFFFF;
---color-text: #243447;
---color-muted: #5E6B78;
---color-border: #E3E8EF;
-
---radius-sm: 10px;
---radius-md: 16px;
---radius-lg: 24px;
-
---shadow-sm:
-    0 2px 8px rgba(0,0,0,.05);
-
---shadow-md:
-    0 6px 18px rgba(0,0,0,.08);
-
---shadow-lg:
-    0 12px 32px rgba(0,0,0,.10);
-
---container-width: 1200px;
-```
-
-}
 
 /* ---------- Reset ---------- */
 
 *,
 *::before,
 *::after {
-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html {
-scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
-margin: 0;
-background: var(--color-bg);
-color: var(--color-text);
-font-family:
-"Segoe UI",
-Arial,
-sans-serif;
-line-height: 1.7;
+    margin: 0;
+    background: #F4F7FB;
+    color: #243447;
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.7;
 }
+
 
 /* ---------- Typography ---------- */
 
@@ -73,33 +31,36 @@ h1,
 h2,
 h3,
 h4 {
-margin-top: 0;
-color: var(--color-text);
-line-height: 1.2;
+    margin-top: 0;
+    color: #243447;
+    line-height: 1.2;
 }
 
 .page-title {
-text-align: center;
-font-size: clamp(2rem, 4vw, 3rem);
-margin-bottom: 2rem;
+    text-align: center;
+    font-size: clamp(2rem, 6vw, 3rem);
+    margin: 0 0 clamp(1rem, 3vw, 2rem);
 }
 
-/* ---------- Layout ---------- */
+
+/* ---------- Main Layout ---------- */
 
 .container {
-max-width: var(--container-width);
-margin: 0 auto;
-padding: 24px;
+    width: 97%;
+    margin: 0 auto;
+    padding: clamp(12px, 2.5vw, 24px) 0;
 }
+
 
 /* ---------- Cards ---------- */
 
 .card {
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
-    padding: 2rem;
+    width: 100%;
+    border-radius: clamp(14px, 2vw, 24px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, .10);
+    padding: clamp(1rem, 3vw, 2rem);
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: clamp(1rem, 3vw, 2rem);
     overflow: hidden;
 }
 
@@ -108,129 +69,385 @@ padding: 24px;
     position: absolute;
     inset: 0;
     border-radius: inherit;
-
-    background:
-        linear-gradient(
-            rgba(255,255,255,.12),
-            rgba(255,255,255,0)
-        );
-
+    background: linear-gradient(
+        rgba(255, 255, 255, .12),
+        rgba(255, 255, 255, 0)
+    );
     pointer-events: none;
 }
 
+
+/* ---------- Church Card ---------- */
+
 .card-church {
-    background:
-        linear-gradient(
-            135deg,
-            #2266AA 0%,
-            #2F78C4 100%
-        );
+    background: linear-gradient(
+        135deg,
+        #2266AA 0%,
+        #2F78C4 100%
+    );
     color: #87CEEB;
 }
 
 .card-church h2 {
-    color: var(--church-text);
+    color: #BFE4FF;
 }
 
+
+/* ---------- Pastor Card ---------- */
+
 .card-pastor {
-    background:
-        linear-gradient(
-            135deg,
-            #228B22 0%,
-            #2FA12F 100%
-        );
+    background: linear-gradient(
+        135deg,
+        #228B22 0%,
+        #2FA12F 100%
+    );
     color: #98FB98;
 }
 
 .card-pastor h2 {
-    color: var(--pastor-text);
+    color: #C8FFD0;
 }
 
+
+/* ---------- Faith Card ---------- */
+
 .card-faith {
-    background:
-        linear-gradient(
-            135deg,
-            #CC6600 0%,
-            #E07A16 100%
-        );
+    background: linear-gradient(
+        135deg,
+        #CC6600 0%,
+        #E07A16 100%
+    );
     color: #FFCC80;
 }
 
 .card-faith h2 {
-    color: var(--faith-text);
+    color: #FFE0B3;
 }
+
 
 /* ---------- Contact Grid ---------- */
 
 .contact-grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1rem, 3vw, 2rem);
 }
 
-/* ---------- Images ---------- */
+
+/* ---------- Pastor Image ---------- */
 
 .float-image {
-float: left;
-width: max(30%, 575px);
-height: auto;
-margin: 0 24px 20px 0;
-border-radius: var(--radius-md);
-box-shadow: var(--shadow-md);
+    float: left;
+    width: 30%;
+    max-width: 30%;
+    height: auto;
+    margin: 0 clamp(10px, 1.5vw, 24px) clamp(8px, 1.5vw, 20px) 0;
+    border-radius: clamp(10px, 1.5vw, 16px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
 }
+
 
 /* ---------- Links ---------- */
 
 a {
-color: var(--color-primary);
-text-decoration: none;
+    text-decoration: none;
 }
 
 a:hover {
-text-decoration: underline;
+    text-decoration: underline;
 }
 
-/* ---------- Lists ---------- */
+
+/* ---------- Faith List ---------- */
+
+.faith-list {
+    padding-left: 1.5em;
+}
 
 .faith-list li {
-margin-bottom: 1rem;
+    margin-bottom: clamp(.75rem, 2vw, 1rem);
 }
 
-/* ---------- Utilities ---------- */
 
-.text-center {
-text-align: center;
-}
+/* ---------- Float Clearing ---------- */
 
 .clearfix::after {
-content: "";
-display: block;
-clear: both;
-}
-
-/* ---------- Mobile ---------- */
-
-@media (max-width: 768px) {
-
-
-.container {
-    padding: 16px;
-}
-
-.card {
-    padding: 1.25rem;
-}
-
-.contact-grid {
-    grid-template-columns: 1fr;
-}
-
-.float-image {
-    float: none;
-    width: min(30%, 260px);
-	height: auto;
-    margin: 0 20px 12px 0;
+    content: "";
+    display: block;
+    clear: both;
 }
 
 
+/* ---------- Phones ---------- */
+
+@media (max-width: 600px) {
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .float-image {
+        width: 30%;
+        max-width: 30%;
+    }
+}
+
+/* =====================================================
+   Monthly Newsletters
+   ===================================================== */
+
+.newsletter-page {
+    min-height: 100vh;
+    background: #228B22;
+    color: #FFD966;
+}
+
+.newsletter-page .page-title {
+    color: #FFD966;
+}
+
+.newsletter-intro {
+    max-width: 900px;
+    margin: 0 auto clamp(1.5rem, 4vw, 2.5rem);
+    text-align: center;
+    color: #FFE7A3;
+    font-size: clamp(.95rem, 2.2vw, 1.15rem);
+}
+
+
+/* ---------- Bookshelf ---------- */
+
+.newsletter-shelf {
+    width: 100%;
+    margin: 0 auto clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.newsletter-row {
+    display: grid;
+
+    /* 6 newsletters across on phones */
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+
+    gap: clamp(4px, 1vw, 12px);
+    align-items: end;
+
+    padding:
+        clamp(10px, 2vw, 18px)
+        clamp(6px, 1.5vw, 18px)
+        0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #5A351D 0%,
+            #3A2113 78%,
+            #26150D 100%
+        );
+}
+
+
+/* ---------- Rolled Newspaper ---------- */
+
+.newsletter {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+    min-width: 0;
+
+    aspect-ratio: 2 / 3;
+
+    padding: clamp(3px, .8vw, 8px);
+
+    color: #4B321D;
+
+    background:
+        linear-gradient(
+            90deg,
+            #B9955B 0%,
+            #E5D0A0 12%,
+            #F5E8C7 45%,
+            #D8BC82 82%,
+            #A9824A 100%
+        );
+
+    border-radius: 7px 7px 2px 2px;
+
+    box-shadow:
+        inset 2px 0 0 rgba(255,255,255,.35),
+        inset -3px 0 0 rgba(72,43,20,.25),
+        0 3px 4px rgba(0,0,0,.35);
+
+    position: relative;
+    overflow: hidden;
+
+    transform-origin: bottom center;
+
+    transition:
+        transform .18s ease,
+        box-shadow .18s ease;
+}
+
+
+/* Rolled end of newspaper */
+
+.newsletter::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 7%;
+
+    width: 86%;
+    height: 13%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #F7EACB 0%,
+            #D0B477 70%,
+            #9C733D 100%
+        );
+
+    box-shadow:
+        inset 0 2px 2px rgba(75,45,18,.28);
+}
+
+
+/* Newspaper fold */
+
+.newsletter::after {
+    content: "";
+
+    position: absolute;
+
+    top: 14%;
+    right: 10%;
+
+    width: 4px;
+    height: 78%;
+
+    background: rgba(75,45,18,.12);
+
+    box-shadow:
+        -7px 0 0 rgba(255,255,255,.12),
+        7px 0 0 rgba(75,45,18,.08);
+}
+
+
+/* ---------- Newsletter Hover / Touch Focus ---------- */
+
+.newsletter:hover,
+.newsletter:focus-visible {
+    transform: translateY(-5px) rotate(-1deg);
+
+    box-shadow:
+        inset 2px 0 0 rgba(255,255,255,.35),
+        inset -3px 0 0 rgba(72,43,20,.25),
+        0 8px 10px rgba(0,0,0,.45);
+
+    text-decoration: none;
+}
+
+
+/* ---------- Newsletter Labels ---------- */
+
+.newsletter-label {
+    width: 100%;
+    min-height: clamp(40px, 6vw, 60px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #6B4226 0%,
+            #4A2A18 45%,
+            #2D190E 100%
+        );
+
+    box-shadow:
+        0 4px 7px rgba(0,0,0,.4),
+        inset 0 2px 1px rgba(255,255,255,.15);
+
+    color: #FFD966;
+
+    font-size: clamp(1.25rem, 4vw, 2rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: .05em;
+
+    text-align: center;
+}
+
+.newsletter-month {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+
+    margin-top: auto;
+    padding: 4px 2px;
+
+    text-align: center;
+
+    font-size: clamp(.75rem, 2.8vw, 1.25rem);
+    font-weight: 800;
+    line-height: 1;
+
+    letter-spacing: .04em;
+}
+
+.newsletter-year {
+    position: relative;
+    z-index: 1;
+
+    padding-bottom: 5px;
+
+    font-size: clamp(.65rem, 2.2vw, 1rem);
+    font-weight: 700;
+    line-height: 1;
+}
+
+
+/* ---------- Shelf Front ---------- */
+
+.newsletter-shelf::after {
+    content: "";
+
+    display: block;
+
+    height: clamp(10px, 2vw, 22px);
+
+    background:
+        linear-gradient(
+            to bottom,
+            #6B4226 0%,
+            #4A2A18 45%,
+            #2D190E 100%
+        );
+
+    border-radius: 0 0 6px 6px;
+
+    box-shadow:
+        0 5px 8px rgba(0,0,0,.4),
+        inset 0 2px 1px rgba(255,255,255,.15);
+}
+
+
+/* ---------- Tablets and Larger ---------- */
+
+@media (min-width: 768px) {
+
+    .newsletter-row {
+        /* 12 newsletters across on tablets and larger */
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+    }
 }

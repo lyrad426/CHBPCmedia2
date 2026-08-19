@@ -1,160 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>In Defense of Truth Weekly Broadcast</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #23660F;
-	color: #B6FEA1;
-    }
-    h2 {
-      text-align: center;
-      color: #333;
-    }
-	#search, #sortBtn {
-      display: block;
-      width: 90vw;
-	padding: 10px;
-	margin-bottom: 6px;
-	margin: 6px auto;
-      font-size: 1em;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-	}
-    #sortBtn {
-      width: 30vw;
-      cursor: pointer;
-      background-color: #0EFF00;
-      color: black;
-      border: none;
-      transition: background-color 0.3s ease;
-	}
-    #sortBtn:hover {
-      background-color: #0AAE00;
-    }
-    #feed {
-      max-width: 90vw;
-      margin: 10px auto;
-    }
-    .item {
-      background-color: #B6FEA1;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      padding: 15px 20px;
-      margin-bottom: 15px;
-      transition: transform 0.2s ease;
-    }
-    .item:hover {
-      transform: translateY(-3px);
-    }
-    .item-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-    .item-icon {
-      font-size: 24px;
-      margin-right: 10px;
-      color: #007bff;
-    }
-    .item-title a {
-      font-size: 1.2em;
-      font-weight: bold;
-      color: #222;
-      text-decoration: none;
-    }
-    .item-title a:hover {
-      text-decoration: underline;
-    }
-    .item-date {
-      font-size: 0.9em;
-      color: #777;
-      margin-bottom: 10px;
-    }
-    .item-description {
-      font-size: 1em;
-      color: #444;
-    }
-    .padded-img {
-      padding: 5px; /* adjust the padding as needed */
-    }
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  </style>
+    <title>In Defense of Truth Radio Ministry by Cub Hill Bible Church</title>
+
+    <link rel="stylesheet" href="design.css">
 </head>
-<body>
-  <p align="center"><font size="6">Weekly Broadcasts</font><br><font size="5">In Defense of Truth</font></p>
-  <p align="center">"In Defense Of Truth" is a 15 minute radio ministry of Cub Hill Bible Church. The radio broadcast airs on WCBM in Baltimore, MD every Sunday morning at _am. Archived copies can be heard below and via Spotify podcast.</p>
 
-<!-- <input type="text" id="search" placeholder="Filter by keyword..." /> -->
-<button id="sortBtn">Sort: Newest First</button>
 
-  <div id="feed"></div>
+<body class="broadcast-page broadcast-idot">
 
-  <script>
-    function openVideo(videoId) {
-      const overlay = document.getElementById("videoOverlay");
-      const player = document.getElementById("youtubePlayer");
-      player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-      overlay.style.display = "flex";
-    }
+<div class="container">
 
-    function closeVideo() {
-      const overlay = document.getElementById("videoOverlay");
-      const player = document.getElementById("youtubePlayer");
-      player.src = "";
-      overlay.style.display = "none";
-    }
-  </script>
 
-  <script>
-  const feedUrl = 'https://api.rss2json.com/v1/api.json?rss_url=https://feeds.bbci.co.uk/news/rss.xml'; // Change RSS feed here
-  const filterKeyword = "of"; // <- define your filter term here
-  let feedItems = [];
-  let sortNewestFirst = true;
+    <header class="broadcast-header">
 
-  async function fetchFeed() {
-    const response = await fetch(feedUrl);
-    const data = await response.json();
-    feedItems = data.items || [];
+        <h1>Weekly Broadcasts</h1>
+
+        <h2>In Defense of Truth</h2>
+
+        <p>
+            "In Defense Of Truth" is a 15 minute radio ministry of Cub Hill Bible Church. The radio broadcast airs on WCBM in Baltimore, MD every Sunday morning at _am. Archived copies can be heard below and via Spotify podcast.
+        </p>
+
+    </header>
+
+
+    <div class="broadcast-controls">
+
+        <button
+            id="sortBtn"
+            class="broadcast-sort"
+            type="button">
+
+            Sort: Newest First
+
+        </button>
+
+    </div>
+
+
+    <section
+        id="feed"
+        class="broadcast-feed"
+        aria-live="polite">
+    </section>
+
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   RSS FEED SETTINGS
+   ===================================================== */
+
+const feedUrl =
+    'https://api.rss2json.com/v1/api.json?rss_url=https://feeds.bbci.co.uk/news/rss.xml';
+
+const filterKeyword = "of";
+
+
+/* =====================================================
+   RSS FEED ENGINE
+   ===================================================== */
+
+let feedItems = [];
+
+let sortNewestFirst = true;
+
+
+async function fetchFeed() {
+
+    const response =
+        await fetch(feedUrl);
+
+    const data =
+        await response.json();
+
+    feedItems =
+        data.items || [];
+
     renderFeed();
-  }
+}
 
-  function renderFeed() {
-	let filtered = feedItems.filter(item =>
-	  item.title.toLowerCase().includes(filterKeyword.toLowerCase()) ||
-	  item.description.toLowerCase().includes(filterKeyword.toLowerCase())
-	);
+
+function renderFeed() {
+
+    let filtered =
+        feedItems.filter(item =>
+
+            item.title
+                .toLowerCase()
+                .includes(
+                    filterKeyword.toLowerCase()
+                )
+
+            ||
+
+            item.description
+                .toLowerCase()
+                .includes(
+                    filterKeyword.toLowerCase()
+                )
+        );
+
 
     filtered.sort((a, b) => {
-      return sortNewestFirst
-        ? new Date(b.pubDate) - new Date(a.pubDate)
-        : new Date(a.pubDate) - new Date(b.pubDate);
+
+        return sortNewestFirst
+
+            ? new Date(b.pubDate) -
+              new Date(a.pubDate)
+
+            : new Date(a.pubDate) -
+              new Date(b.pubDate);
     });
 
-    const feedDiv = document.getElementById('feed');
-    feedDiv.innerHTML = '';
+
+    const feedDiv =
+        document.getElementById("feed");
+
+    feedDiv.innerHTML = "";
+
+
     filtered.forEach(item => {
-      feedDiv.innerHTML += `
-        <div class="item">
-          <div class="item-title"><img src="tape.png" align="left" class="padded-img" height="5%"><a href="${item.link}" target="_blank">${item.title}</a></div>
-          <div class="item-date">${new Date(item.pubDate).toLocaleString()}</div>
-          <div class="item-description">${item.description}</div>
-        </div>`;
+
+        feedDiv.innerHTML += `
+
+            <article class="broadcast-item">
+
+                <div class="broadcast-icon">
+
+                    <img
+                        src="tape.png"
+                        alt="">
+
+                </div>
+
+
+                <div class="broadcast-content">
+
+                    <h3 class="broadcast-title">
+
+                        <a
+                            href="${item.link}"
+                            target="_blank"
+                            rel="noopener">
+
+                            ${item.title}
+
+                        </a>
+
+                    </h3>
+
+
+                    <div class="broadcast-date">
+
+                        ${new Date(item.pubDate)
+                            .toLocaleString()}
+
+                    </div>
+
+
+                    <div class="broadcast-description">
+
+                        ${item.description}
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        `;
     });
-  }
+}
 
-  document.getElementById('sortBtn').addEventListener('click', () => {
-    sortNewestFirst = !sortNewestFirst;
-    document.getElementById('sortBtn').innerText = `Sort: ${sortNewestFirst ? 'Newest First' : 'Oldest First'}`;
-    renderFeed();
-  });
 
-  fetchFeed();
-  </script>
+document
+    .getElementById("sortBtn")
+    .addEventListener("click", () => {
+
+        sortNewestFirst =
+            !sortNewestFirst;
+
+        document.getElementById("sortBtn")
+            .innerText =
+                `Sort: ${
+                    sortNewestFirst
+                        ? "Newest First"
+                        : "Oldest First"
+                }`;
+
+        renderFeed();
+    });
+
+
+fetchFeed();
+
+</script>
+
 </body>
 </html>

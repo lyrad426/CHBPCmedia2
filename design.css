@@ -451,3 +451,418 @@ a:hover {
         grid-template-columns: repeat(12, minmax(0, 1fr));
     }
 }
+
+/* =====================================================
+   Broadcast / RSS Pages
+   ===================================================== */
+
+
+/* ---------- Page Base ---------- */
+
+.broadcast-page {
+    min-height: 100vh;
+    color: #FFE7A3;
+}
+
+
+/* ---------- Page Color Themes ---------- */
+
+.broadcast-sermons {
+    background:
+        linear-gradient(
+            135deg,
+            #2266AA 0%,
+            #2F78C4 100%
+        );
+}
+
+.broadcast-idot {
+    background:
+        linear-gradient(
+            135deg,
+            #228B22 0%,
+            #2FA12F 100%
+        );
+}
+
+.broadcast-mot {
+    background:
+        linear-gradient(
+            135deg,
+            #CC6600 0%,
+            #E07A16 100%
+        );
+}
+
+
+/* ---------- Broadcast Header ---------- */
+
+.broadcast-header {
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.broadcast-header h1 {
+    margin-bottom: .25rem;
+
+    color: #FFD966;
+
+    font-size: clamp(2rem, 7vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+}
+
+.broadcast-header h2 {
+    margin-bottom: 1rem;
+
+    color: #FFE7A3;
+
+    font-size: clamp(1.15rem, 4vw, 1.8rem);
+    font-weight: 600;
+}
+
+.broadcast-header p {
+    margin: 0 auto;
+
+    max-width: 850px;
+
+    color: #FFF0BE;
+
+    font-size: clamp(.95rem, 2.5vw, 1.15rem);
+}
+
+
+/* ---------- Header Links ---------- */
+
+.broadcast-header a {
+    color: #FFD966;
+    font-weight: 700;
+}
+
+.broadcast-header a:hover {
+    color: #FFF4C2;
+}
+
+
+/* ---------- Feed Controls ---------- */
+
+.broadcast-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 auto clamp(1rem, 3vw, 1.75rem);
+}
+
+.broadcast-sort {
+    appearance: none;
+
+    min-width: 180px;
+
+    padding: .75rem 1.25rem;
+
+    border: 1px solid rgba(255, 217, 102, .7);
+    border-radius: 999px;
+
+    background: rgba(40, 25, 10, .45);
+    color: #FFD966;
+
+    font: inherit;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.2),
+        inset 0 1px rgba(255,255,255,.12);
+}
+
+.broadcast-sort:hover,
+.broadcast-sort:focus-visible {
+    background: rgba(40, 25, 10, .65);
+    outline: none;
+}
+
+
+/* ---------- RSS Feed ---------- */
+
+.broadcast-feed {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+}
+
+
+/* ---------- RSS Entry ---------- */
+
+.broadcast-item {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+    gap: clamp(.75rem, 2vw, 1.25rem);
+
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+
+    padding: clamp(1rem, 3vw, 1.5rem);
+
+    border-radius: clamp(14px, 2vw, 22px);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.94),
+            rgba(255,255,255,.82)
+        );
+
+    color: #243447;
+
+    box-shadow:
+        0 8px 24px rgba(0,0,0,.20),
+        inset 0 1px rgba(255,255,255,.8);
+
+    transition:
+        transform .18s ease,
+        box-shadow .18s ease;
+}
+
+.broadcast-item:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 28px rgba(0,0,0,.27),
+        inset 0 1px rgba(255,255,255,.9);
+}
+
+
+/* ---------- RSS Icon ---------- */
+
+.broadcast-icon {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    width: clamp(44px, 8vw, 70px);
+}
+
+.broadcast-icon img {
+    display: block;
+
+    width: 100%;
+    max-width: 60px;
+    height: auto;
+}
+
+
+/* ---------- RSS Entry Content ---------- */
+
+.broadcast-content {
+    min-width: 0;
+}
+
+.broadcast-title {
+    margin: 0 0 .35rem;
+}
+
+.broadcast-title a {
+    color: #243447;
+
+    font-size: clamp(1.05rem, 3vw, 1.45rem);
+    font-weight: 800;
+    line-height: 1.25;
+
+    text-decoration: none;
+}
+
+.broadcast-title a:hover {
+    text-decoration: underline;
+}
+
+
+/* ---------- RSS Date ---------- */
+
+.broadcast-date {
+    margin-bottom: .6rem;
+
+    color: #667788;
+
+    font-size: clamp(.8rem, 2vw, .95rem);
+    font-weight: 600;
+}
+
+
+/* ---------- RSS Description ---------- */
+
+.broadcast-description {
+    color: #3F4D59;
+
+    font-size: clamp(.9rem, 2.2vw, 1.05rem);
+    line-height: 1.6;
+}
+
+.broadcast-description p:first-child {
+    margin-top: 0;
+}
+
+.broadcast-description p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =====================================================
+   Sermon Video Section
+   ===================================================== */
+
+.sermon-list {
+    display: grid;
+    gap: clamp(.75rem, 2vw, 1rem);
+
+    max-width: 1100px;
+
+    margin: 0 auto clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.sermon-card {
+    display: grid;
+
+    grid-template-columns:
+        minmax(60px, 100px)
+        minmax(0, 1fr);
+
+    align-items: center;
+
+    gap: clamp(.75rem, 3vw, 2rem);
+
+    padding: clamp(.75rem, 2vw, 1rem);
+
+    border-radius: clamp(12px, 2vw, 18px);
+
+    background: rgba(255,255,255,.16);
+
+    box-shadow:
+        0 6px 18px rgba(0,0,0,.18),
+        inset 0 1px rgba(255,255,255,.15);
+}
+
+.sermon-video-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    padding: 0;
+
+    border: 0;
+    border-radius: 12px;
+
+    background: transparent;
+
+    cursor: pointer;
+}
+
+.sermon-video-button img {
+    display: block;
+
+    width: min(100%, 90px);
+    height: auto;
+
+    margin: 0 auto;
+}
+
+.sermon-video-button:hover,
+.sermon-video-button:focus-visible {
+    transform: scale(1.03);
+    outline: 2px solid #FFD966;
+    outline-offset: 2px;
+}
+
+.sermon-info {
+    min-width: 0;
+
+    color: #FFF0BE;
+
+    font-size: clamp(.9rem, 2.4vw, 1.1rem);
+}
+
+.sermon-title {
+    margin-bottom: .3rem;
+
+    color: #FFD966;
+
+    font-size: clamp(1rem, 3vw, 1.35rem);
+    font-weight: 800;
+}
+
+.sermon-date {
+    color: #FFF0BE;
+}
+
+
+/* =====================================================
+   YouTube Overlay
+   ===================================================== */
+
+.video-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 4vw;
+
+    background: rgba(0,0,0,.85);
+
+    z-index: 1000;
+}
+
+.video-overlay iframe {
+    width: min(100%, 1100px);
+    aspect-ratio: 16 / 9;
+
+    border: 0;
+    border-radius: 12px;
+
+    box-shadow: 0 15px 50px rgba(0,0,0,.5);
+}
+
+.video-close {
+    position: fixed;
+
+    top: 1rem;
+    right: 1.25rem;
+
+    color: white;
+
+    font-size: clamp(2rem, 6vw, 3rem);
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 1001;
+}
+
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 600px) {
+
+    .broadcast-item {
+        grid-template-columns: auto 1fr;
+    }
+    
+    .sermon-video-button {
+        width: min(55vw, 220px);
+    }
+
+    .sermon-video-button img {
+        width: clamp(55px, 18vw, 85px);
+    }
+}

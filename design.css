@@ -728,9 +728,7 @@ a:hover {
 .sermon-card {
     display: grid;
 
-    grid-template-columns:
-        minmax(60px, 100px)
-        minmax(0, 1fr);
+    grid-template-columns: auto minmax(0, 1fr);
 
     align-items: center;
 
@@ -748,11 +746,11 @@ a:hover {
 }
 
 .sermon-video-button {
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
 
-    width: 100%;
+    width: clamp(60px, 22vw, 140px);
 
     padding: 0;
 
@@ -762,12 +760,14 @@ a:hover {
     background: transparent;
 
     cursor: pointer;
+
+    overflow: hidden;
 }
 
 .sermon-video-button img {
     display: block;
 
-    width: min(100%, 90px);
+    width: 100%;
     height: auto;
 
     margin: 0 auto;
@@ -847,22 +847,4 @@ a:hover {
     cursor: pointer;
 
     z-index: 1001;
-}
-
-
-/* ---------- Mobile ---------- */
-
-@media (max-width: 600px) {
-
-    .broadcast-item {
-        grid-template-columns: auto 1fr;
-    }
-    
-    .sermon-video-button {
-        width: min(55vw, 220px);
-    }
-
-    .sermon-video-button img {
-        width: clamp(55px, 18vw, 85px);
-    }
 }

@@ -85,7 +85,7 @@ h4 {
         #2266AA 0%,
         #2F78C4 100%
     );
-    color: #BFE4FF;
+    color: #87CEEB;
 }
 
 .card-church h2 {
@@ -101,11 +101,11 @@ h4 {
         #228B22 0%,
         #2FA12F 100%
     );
-    color: #a8f5a8;
+    color: #98FB98;
 }
 
 .card-pastor h2 {
-    color: #a8f5a8;
+    color: #A8F5A8;
 }
 
 
@@ -117,7 +117,7 @@ h4 {
         #CC6600 0%,
         #E07A16 100%
     );
-    color: #FFE0B3;
+    color: #FFCC80;
 }
 
 .card-faith h2 {
@@ -492,10 +492,10 @@ a:hover {
             #2FA12F 100%
         );
 
-    color: #a8f5a8;
+    color: #A8F5A8;
 
     --broadcast-text: #98FB98;
-    --broadcast-heading: #a8f5a8;
+    --broadcast-heading: #A8F5A8;
 }
 
 

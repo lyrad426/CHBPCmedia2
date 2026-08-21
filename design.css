@@ -101,11 +101,11 @@ h4 {
         #228B22 0%,
         #2FA12F 100%
     );
-    color: #C8FFD0;
+    color: #a8f5a8;
 }
 
 .card-pastor h2 {
-    color: #C8FFD0;
+    color: #a8f5a8;
 }
 
 
@@ -492,10 +492,10 @@ a:hover {
             #2FA12F 100%
         );
 
-    color: #C8FFD0;
+    color: #a8f5a8;
 
     --broadcast-text: #98FB98;
-    --broadcast-heading: #C8FFD0;
+    --broadcast-heading: #a8f5a8;
 }
 
 
@@ -796,7 +796,7 @@ a:hover {
     align-items: center;
     justify-content: center;
 
-    width: clamp(60px, 22vw, 140px);
+    width: clamp(60px, 15vw, 140px);
 
     padding: 0;
 

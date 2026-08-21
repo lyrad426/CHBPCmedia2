@@ -32,7 +32,7 @@ h2,
 h3,
 h4 {
     margin-top: 0;
-    color: #243447;
+    color: var(--color-text);
     line-height: 1.2;
 }
 
@@ -85,7 +85,7 @@ h4 {
         #2266AA 0%,
         #2F78C4 100%
     );
-    color: #87CEEB;
+    color: #BFE4FF;
 }
 
 .card-church h2 {
@@ -101,7 +101,7 @@ h4 {
         #228B22 0%,
         #2FA12F 100%
     );
-    color: #98FB98;
+    color: #C8FFD0;
 }
 
 .card-pastor h2 {
@@ -117,7 +117,7 @@ h4 {
         #CC6600 0%,
         #E07A16 100%
     );
-    color: #FFCC80;
+    color: #FFE0B3;
 }
 
 .card-faith h2 {
@@ -456,16 +456,16 @@ a:hover {
    Broadcast / RSS Pages
    ===================================================== */
 
-
 /* ---------- Page Base ---------- */
 
 .broadcast-page {
     min-height: 100vh;
-    color: #FFE7A3;
 }
 
 
-/* ---------- Page Color Themes ---------- */
+/* ---------- Broadcast Color Themes ---------- */
+
+/* Sermons — Blue */
 
 .broadcast-sermons {
     background:
@@ -474,7 +474,15 @@ a:hover {
             #2266AA 0%,
             #2F78C4 100%
         );
+
+    color: #BFE4FF;
+
+    --broadcast-text: #87CEEB;
+    --broadcast-heading: #BFE4FF;
 }
+
+
+/* In Defense of Truth — Green */
 
 .broadcast-idot {
     background:
@@ -483,7 +491,15 @@ a:hover {
             #228B22 0%,
             #2FA12F 100%
         );
+
+    color: #C8FFD0;
+
+    --broadcast-text: #98FB98;
+    --broadcast-heading: #C8FFD0;
 }
+
+
+/* Moment of Truth — Orange */
 
 .broadcast-mot {
     background:
@@ -492,21 +508,32 @@ a:hover {
             #CC6600 0%,
             #E07A16 100%
         );
+
+    color: #FFE0B3;
+
+    --broadcast-text: #FFCC80;
+    --broadcast-heading: #FFE0B3;
 }
 
 
 /* ---------- Broadcast Header ---------- */
 
 .broadcast-header {
-    text-align: center;
     max-width: 1000px;
-    margin: 0 auto clamp(1.5rem, 4vw, 2.5rem);
+
+    margin:
+        0 auto
+        clamp(1.5rem, 4vw, 2.5rem);
+
+    text-align: center;
+
+    color: var(--broadcast-text);
 }
 
 .broadcast-header h1 {
     margin-bottom: .25rem;
 
-    color: #FFD966;
+    color: var(--broadcast-heading);
 
     font-size: clamp(2rem, 7vw, 3.5rem);
     font-weight: 800;
@@ -516,7 +543,7 @@ a:hover {
 .broadcast-header h2 {
     margin-bottom: 1rem;
 
-    color: #FFE7A3;
+    color: var(--broadcast-heading);
 
     font-size: clamp(1.15rem, 4vw, 1.8rem);
     font-weight: 600;
@@ -527,21 +554,21 @@ a:hover {
 
     max-width: 850px;
 
-    color: #FFF0BE;
+    color: var(--broadcast-text);
 
     font-size: clamp(.95rem, 2.5vw, 1.15rem);
 }
 
 
-/* ---------- Header Links ---------- */
+/* ---------- Broadcast Links ---------- */
 
 .broadcast-header a {
-    color: #FFD966;
+    color: var(--broadcast-heading);
     font-weight: 700;
 }
 
 .broadcast-header a:hover {
-    color: #FFF4C2;
+    color: var(--broadcast-text);
 }
 
 
@@ -552,7 +579,9 @@ a:hover {
     justify-content: center;
     align-items: center;
 
-    margin: 0 auto clamp(1rem, 3vw, 1.75rem);
+    margin:
+        0 auto
+        clamp(1rem, 3vw, 1.75rem);
 }
 
 .broadcast-sort {
@@ -562,11 +591,15 @@ a:hover {
 
     padding: .75rem 1.25rem;
 
-    border: 1px solid rgba(255, 217, 102, .7);
+    border:
+        1px solid
+        var(--broadcast-heading);
+
     border-radius: 999px;
 
-    background: rgba(40, 25, 10, .45);
-    color: #FFD966;
+    background: rgba(0, 0, 0, .25);
+
+    color: var(--broadcast-heading);
 
     font: inherit;
     font-weight: 700;
@@ -574,13 +607,13 @@ a:hover {
     cursor: pointer;
 
     box-shadow:
-        0 4px 12px rgba(0,0,0,.2),
+        0 4px 12px rgba(0,0,0,.20),
         inset 0 1px rgba(255,255,255,.12);
 }
 
 .broadcast-sort:hover,
 .broadcast-sort:focus-visible {
-    background: rgba(40, 25, 10, .65);
+    background: rgba(0, 0, 0, .40);
     outline: none;
 }
 
@@ -601,28 +634,29 @@ a:hover {
     position: relative;
 
     display: grid;
-    grid-template-columns: auto 1fr;
+
+    grid-template-columns:
+        auto
+        minmax(0, 1fr);
 
     gap: clamp(.75rem, 2vw, 1.25rem);
 
-    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+    margin-bottom:
+        clamp(1rem, 3vw, 1.5rem);
 
-    padding: clamp(1rem, 3vw, 1.5rem);
+    padding:
+        clamp(1rem, 3vw, 1.5rem);
 
-    border-radius: clamp(14px, 2vw, 22px);
+    border-radius:
+        clamp(14px, 2vw, 22px);
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.94),
-            rgba(255,255,255,.82)
-        );
+    background: rgba(255,255,255,.12);
 
-    color: #243447;
+    color: var(--broadcast-text);
 
     box-shadow:
         0 8px 24px rgba(0,0,0,.20),
-        inset 0 1px rgba(255,255,255,.8);
+        inset 0 1px rgba(255,255,255,.15);
 
     transition:
         transform .18s ease,
@@ -634,7 +668,7 @@ a:hover {
 
     box-shadow:
         0 12px 28px rgba(0,0,0,.27),
-        inset 0 1px rgba(255,255,255,.9);
+        inset 0 1px rgba(255,255,255,.20);
 }
 
 
@@ -653,6 +687,7 @@ a:hover {
 
     width: 100%;
     max-width: 60px;
+
     height: auto;
 }
 
@@ -661,16 +696,23 @@ a:hover {
 
 .broadcast-content {
     min-width: 0;
+
+    color: var(--broadcast-text);
 }
+
+
+/* ---------- RSS Title ---------- */
 
 .broadcast-title {
     margin: 0 0 .35rem;
 }
 
 .broadcast-title a {
-    color: #243447;
+    color: var(--broadcast-heading);
 
-    font-size: clamp(1.05rem, 3vw, 1.45rem);
+    font-size:
+        clamp(1.05rem, 3vw, 1.45rem);
+
     font-weight: 800;
     line-height: 1.25;
 
@@ -678,6 +720,7 @@ a:hover {
 }
 
 .broadcast-title a:hover {
+    color: var(--broadcast-text);
     text-decoration: underline;
 }
 
@@ -687,9 +730,11 @@ a:hover {
 .broadcast-date {
     margin-bottom: .6rem;
 
-    color: #667788;
+    color: var(--broadcast-text);
 
-    font-size: clamp(.8rem, 2vw, .95rem);
+    font-size:
+        clamp(.8rem, 2vw, .95rem);
+
     font-weight: 600;
 }
 
@@ -697,9 +742,11 @@ a:hover {
 /* ---------- RSS Description ---------- */
 
 .broadcast-description {
-    color: #3F4D59;
+    color: var(--broadcast-text);
 
-    font-size: clamp(.9rem, 2.2vw, 1.05rem);
+    font-size:
+        clamp(.9rem, 2.2vw, 1.05rem);
+
     line-height: 1.6;
 }
 
@@ -710,7 +757,6 @@ a:hover {
 .broadcast-description p:last-child {
     margin-bottom: 0;
 }
-
 
 /* =====================================================
    Sermon Video Section
@@ -783,22 +829,25 @@ a:hover {
 .sermon-info {
     min-width: 0;
 
-    color: #FFF0BE;
+    color: var(--broadcast-text);
 
-    font-size: clamp(.9rem, 2.4vw, 1.1rem);
+    font-size:
+        clamp(.9rem, 2.4vw, 1.1rem);
 }
 
 .sermon-title {
     margin-bottom: .3rem;
 
-    color: #FFD966;
+    color: var(--broadcast-heading);
 
-    font-size: clamp(1rem, 3vw, 1.35rem);
+    font-size:
+        clamp(1rem, 3vw, 1.35rem);
+
     font-weight: 800;
 }
 
 .sermon-date {
-    color: #FFF0BE;
+    color: var(--broadcast-text);
 }
 
 

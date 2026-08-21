@@ -16,7 +16,14 @@ html {
     scroll-behavior: smooth;
 }
 
+html,
 body {
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
     margin: 0;
     background: #F4F7FB;
     color: #243447;
@@ -460,8 +467,8 @@ a:hover {
 
 .broadcast-page {
     min-height: 100vh;
+    width: 100%;
 }
-
 
 /* ---------- Broadcast Color Themes ---------- */
 
@@ -474,7 +481,7 @@ a:hover {
             #2266AA 0%,
             #2F78C4 100%
         );
-
+    background-color: #2266AA;
     color: #BFE4FF;
 
     --broadcast-text: #87CEEB;
@@ -491,7 +498,7 @@ a:hover {
             #228B22 0%,
             #2FA12F 100%
         );
-
+    background-color: #228B22;
     color: #A8F5A8;
 
     --broadcast-text: #98FB98;
@@ -508,7 +515,7 @@ a:hover {
             #CC6600 0%,
             #E07A16 100%
         );
-
+    background-color: #CC6600;
     color: #FFE0B3;
 
     --broadcast-text: #FFCC80;

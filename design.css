@@ -643,10 +643,12 @@ a:hover {
     display: grid;
 
     grid-template-columns:
-        auto
+        clamp(60px, 25vw, 140px)
         minmax(0, 1fr);
 
-    gap: clamp(.75rem, 2vw, 1.25rem);
+	align-items: center;
+
+    gap: clamp(.75rem, 3vw, 2rem);
 
     margin-bottom:
         clamp(1rem, 3vw, 1.5rem);
@@ -683,19 +685,19 @@ a:hover {
 
 .broadcast-icon {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
 
-    width: clamp(44px, 8vw, 70px);
+    width: 100%;
 }
 
 .broadcast-icon img {
     display: block;
 
     width: 100%;
-    max-width: 60px;
-
     height: auto;
+
+	margin: auto;
 }
 
 
@@ -803,7 +805,7 @@ a:hover {
     align-items: center;
     justify-content: center;
 
-    width: clamp(60px, 15vw, 140px);
+    width: clamp(60px, 25vw, 140px);
 
     padding: 0;
 

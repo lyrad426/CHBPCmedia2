@@ -7,7 +7,7 @@
 
     <title>In Defense of Truth Radio Ministry by Cub Hill Bible Church</title>
 
-    <link rel="stylesheet" href="design.css">
+	<link rel="stylesheet" href="design-condensed-pass2.css">
 </head>
 
 
@@ -76,16 +76,50 @@ let sortNewestFirst = true;
 
 async function fetchFeed() {
 
-    const response =
-        await fetch(feedUrl);
+    const feedDiv =
+        document.getElementById("feed");
 
-    const data =
-        await response.json();
+    try {
 
-    feedItems =
-        data.items || [];
+        const response =
+            await fetch(feedUrl);
 
-    renderFeed();
+        if (!response.ok) {
+            throw new Error(
+                `Feed request failed: ${response.status}`
+            );
+        }
+
+        const data =
+            await response.json();
+
+        feedItems =
+            data.items || [];
+
+        renderFeed();
+
+    } catch (error) {
+
+        console.error(
+            "Unable to load broadcast feed:",
+            error
+        );
+
+        feedDiv.innerHTML = `
+            <div class="broadcast-item broadcast-error">
+                <div class="broadcast-content">
+                    <h3 class="broadcast-title">
+                        Unable to Load Broadcasts
+                    </h3>
+
+                    <div class="broadcast-description">
+                        The broadcast archive is temporarily
+                        unavailable. Please try again later.
+                    </div>
+                </div>
+            </div>
+        `;
+    }
 }
 
 

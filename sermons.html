@@ -7,7 +7,7 @@
 
     <title>Cub Hill Bible Church Sunday Sermons</title>
 
-    <link rel="stylesheet" href="design.css">
+	<link rel="stylesheet" href="design-condensed-pass2.css">
 </head>
 
 
@@ -187,7 +187,7 @@
 
             <button
                 class="sermon-video-button"
-                onclick="openVideo('C9KsGQN23Bc')">
+                onclick="openVideo('JvBdQPT_pHQ')">
 
                 <img src="YT.png" alt="Watch sermon">
 
@@ -216,7 +216,7 @@
 
             <button
                 class="sermon-video-button"
-                onclick="openVideo('l7IGwXXVA0Y')">
+                onclick="openVideo('C9KsGQN23Bc')">
 
                 <img src="YT.png" alt="Watch sermon">
 
@@ -281,14 +281,15 @@
     class="video-overlay"
     id="videoOverlay">
 
-    <div
-        class="video-close"
-        onclick="closeVideo()"
-        aria-label="Close video">
+<button
+    type="button"
+    class="video-close"
+    onclick="closeVideo()"
+    aria-label="Close video">
 
-        &times;
+    &times;
 
-    </div>
+</button>
 
     <iframe
         id="youtubePlayer"
@@ -313,11 +314,18 @@ function openVideo(videoId) {
     player.src =
         `https://www.youtube.com/embed/${videoId}?autoplay=1`;
 
-    overlay.style.display = "flex";
+	overlay.style.display = "flex";
+	document.body.style.overflow = "hidden";
 }
 
 
 function closeVideo() {
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        closeVideo();
+    }
+});
 
     const overlay =
         document.getElementById("videoOverlay");
@@ -325,9 +333,10 @@ function closeVideo() {
     const player =
         document.getElementById("youtubePlayer");
 
-    player.src = "";
+	player.src = "";
 
-    overlay.style.display = "none";
+	overlay.style.display = "none";
+	document.body.style.overflow = "";
 }
 
 </script>
@@ -356,16 +365,50 @@ let sortNewestFirst = true;
 
 async function fetchFeed() {
 
-    const response =
-        await fetch(feedUrl);
+    const feedDiv =
+        document.getElementById("feed");
 
-    const data =
-        await response.json();
+    try {
 
-    feedItems =
-        data.items || [];
+        const response =
+            await fetch(feedUrl);
 
-    renderFeed();
+        if (!response.ok) {
+            throw new Error(
+                `Feed request failed: ${response.status}`
+            );
+        }
+
+        const data =
+            await response.json();
+
+        feedItems =
+            data.items || [];
+
+        renderFeed();
+
+    } catch (error) {
+
+        console.error(
+            "Unable to load broadcast feed:",
+            error
+        );
+
+        feedDiv.innerHTML = `
+        	<div class="broadcast-item broadcast-error">
+                <div class="broadcast-content">
+                    <h3 class="broadcast-title">
+                        Unable to Load Broadcasts
+                    </h3>
+
+                    <div class="broadcast-description">
+                        The broadcast archive is temporarily
+                        unavailable. Please try again later.
+                    </div>
+                </div>
+            </div>
+        `;
+    }
 }
 
 

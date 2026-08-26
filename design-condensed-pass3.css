@@ -49,7 +49,7 @@
     --space-small: clamp(.75rem, 2vw, 1rem);
     --space-medium: clamp(1rem, 3vw, 1.5rem);
     --space-large: clamp(1.5rem, 4vw, 2.5rem);
-    --thumbnail-width: var(--thumbnail-width);
+    --thumbnail-width: clamp(60px, 25vw, 140px);
 }
 
 
@@ -586,6 +586,7 @@ h4 {
 .broadcast-icon img {
     display: block;
     width: 100%;
+    max-width: var(--thumbnail-width);
     height: auto;
     margin: auto;
 }

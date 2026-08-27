@@ -1,0 +1,742 @@
+/* =====================================================
+   Cub Hill Church — Shared Site Styles
+   Mobile / Tablet First
+   ===================================================== */
+
+
+/* =====================================================
+   1. DESIGN TOKENS
+   ===================================================== */
+
+:root {
+    /* Site colors */
+    --color-page-bg: #F4F7FB;
+    --color-text: #243447;
+
+    --blue-dark: #2266AA;
+    --blue-light: #2F78C4;
+    --blue-text: #87CEEB;
+    --blue-heading: #BFE4FF;
+
+    --green-dark: #228B22;
+    --green-light: #2FA12F;
+    --green-text: #98FB98;
+    --green-heading: #A8F5A8;
+
+    --orange-dark: #CC6600;
+    --orange-light: #E07A16;
+    --orange-text: #FFCC80;
+    --orange-heading: #FFE0B3;
+
+    --gold: #FFD966;
+    --newsletter-intro: #FFE7A3;
+
+    --shelf-dark: #2D190E;
+    --shelf-mid: #4A2A18;
+    --shelf-light: #6B4226;
+    --shelf-gradient: linear-gradient(
+        to bottom,
+        var(--shelf-light) 0%,
+        var(--shelf-mid) 45%,
+        var(--shelf-dark) 100%
+    );
+    --shelf-shadow:
+        0 5px 8px rgba(0, 0, 0, .4),
+        inset 0 2px 1px rgba(255, 255, 255, .15);
+
+    /* Shared dimensions */
+    --content-width: 1100px;
+    --header-width: 1000px;
+
+    --radius-medium: 12px;
+    --radius-card: clamp(14px, 2vw, 24px);
+
+    /* Shared shadows */
+    --shadow-card: 0 12px 32px rgba(0, 0, 0, .10);
+
+    /* Shared responsive spacing */
+    --space-small: clamp(.75rem, 2vw, 1rem);
+    --space-medium: clamp(1rem, 3vw, 1.5rem);
+    --space-large: clamp(1.5rem, 4vw, 2.5rem);
+    --thumbnail-width: clamp(60px, 25vw, 140px);
+}
+
+
+/* =====================================================
+   2. RESET / BASE
+   ===================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--color-page-bg);
+    color: var(--color-text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin-top: 0;
+    color: var(--color-text);
+    line-height: 1.2;
+}
+
+
+/* =====================================================
+   3. SHARED LAYOUT / TYPOGRAPHY
+   ===================================================== */
+
+.container {
+    width: 97%;
+    margin: 0 auto;
+    padding: clamp(12px, 2.5vw, 24px) 0;
+}
+
+.page-title {
+    margin: 0 0 var(--space-large);
+    text-align: center;
+    font-size: clamp(2rem, 6vw, 3rem);
+}
+
+
+/* =====================================================
+   4. SHARED CARDS
+   ===================================================== */
+
+.card {
+    position: relative;
+    margin-bottom: var(--space-large);
+    padding: var(--space-medium);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+        rgba(255, 255, 255, .12),
+        rgba(255, 255, 255, 0)
+    );
+    pointer-events: none;
+}
+
+/* ---------- About Page Cards ---------- */
+
+.theme-card {
+    background: linear-gradient(
+        135deg,
+        var(--theme-dark) 0%,
+        var(--theme-light) 100%
+    );
+    color: var(--theme-text);
+}
+
+.theme-card h2 {
+    color: var(--theme-heading);
+}
+
+.card-church {
+    --theme-dark: var(--blue-dark);
+    --theme-light: var(--blue-light);
+    --theme-text: var(--blue-text);
+    --theme-heading: var(--blue-heading);
+}
+
+.card-pastor {
+    --theme-dark: var(--green-dark);
+    --theme-light: var(--green-light);
+    --theme-text: var(--green-text);
+    --theme-heading: var(--green-heading);
+}
+
+.card-faith {
+    --theme-dark: var(--orange-dark);
+    --theme-light: var(--orange-light);
+    --theme-text: var(--orange-text);
+    --theme-heading: var(--orange-heading);
+}
+
+
+/* ---------- Contact Grid ---------- */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-large);
+}
+
+
+/* ---------- Pastor Image ---------- */
+
+.float-image {
+    float: left;
+    width: 30%;
+    max-width: 30%;
+    height: auto;
+    margin: 0 clamp(10px, 1.5vw, 24px) clamp(8px, 1.5vw, 20px) 0;
+    border-radius: clamp(10px, 1.5vw, 16px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
+}
+
+
+/* ---------- Faith List ---------- */
+
+.faith-list {
+    padding-left: 1.5em;
+}
+
+.faith-list li {
+    margin-bottom: var(--space-small);
+}
+
+
+/* ---------- Float Clearing ---------- */
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+
+/* =====================================================
+   5. MONTHLY NEWSLETTERS
+   ===================================================== */
+
+.newsletter-page {
+    min-height: 100vh;
+    background: var(--green-dark);
+    color: var(--gold);
+}
+
+.newsletter-page .page-title {
+    color: var(--gold);
+}
+
+.newsletter-intro {
+    max-width: 900px;
+    margin: 0 auto var(--space-large);
+    text-align: center;
+    color: var(--newsletter-intro);
+    font-size: clamp(.95rem, 2.2vw, 1.15rem);
+}
+
+
+/* ---------- Bookshelf ---------- */
+
+.newsletter-shelf {
+    margin: 0 auto var(--space-large);
+}
+
+.newsletter-row {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: clamp(4px, 1vw, 12px);
+    align-items: end;
+    padding:
+        clamp(10px, 2vw, 18px)
+        clamp(6px, 1.5vw, 18px)
+        0;
+    background: linear-gradient(
+        to bottom,
+        #5A351D 0%,
+        #3A2113 78%,
+        #26150D 100%
+    );
+}
+
+
+/* ---------- Rolled Newspaper ---------- */
+
+.newsletter {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    min-width: 0;
+    aspect-ratio: 2 / 3;
+    padding: clamp(3px, .8vw, 8px);
+    position: relative;
+    overflow: hidden;
+    transform-origin: bottom center;
+    color: #4B321D;
+    background: linear-gradient(
+        90deg,
+        #B9955B 0%,
+        #E5D0A0 12%,
+        #F5E8C7 45%,
+        #D8BC82 82%,
+        #A9824A 100%
+    );
+    border-radius: 7px 7px 2px 2px;
+    box-shadow:
+        inset 2px 0 0 rgba(255, 255, 255, .35),
+        inset -3px 0 0 rgba(72, 43, 20, .25),
+        0 3px 4px rgba(0, 0, 0, .35);
+    transition:
+        transform .18s ease,
+        box-shadow .18s ease;
+}
+
+
+/* ---------- Rolled End ---------- */
+
+.newsletter::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 7%;
+    width: 86%;
+    height: 13%;
+    border-radius: 50%;
+    background: radial-gradient(
+        ellipse at center,
+        #F7EACB 0%,
+        #D0B477 70%,
+        #9C733D 100%
+    );
+    box-shadow:
+        inset 0 2px 2px rgba(75, 45, 18, .28);
+}
+
+
+/* ---------- Newspaper Fold ---------- */
+
+.newsletter::after {
+    content: "";
+    position: absolute;
+    top: 14%;
+    right: 10%;
+    width: 4px;
+    height: 78%;
+    background: rgba(75, 45, 18, .12);
+    box-shadow:
+        -7px 0 0 rgba(255, 255, 255, .12),
+        7px 0 0 rgba(75, 45, 18, .08);
+}
+
+
+/* ---------- Newsletter Hover / Touch Focus ---------- */
+
+.newsletter:hover,
+.newsletter:focus-visible {
+    transform: translateY(-5px) rotate(-1deg);
+    box-shadow:
+        inset 2px 0 0 rgba(255, 255, 255, .35),
+        inset -3px 0 0 rgba(72, 43, 20, .25),
+        0 8px 10px rgba(0, 0, 0, .45);
+    text-decoration: none;
+}
+
+
+/* ---------- Newsletter Labels ---------- */
+
+.newsletter-label {
+    width: 100%;
+    min-height: clamp(40px, 6vw, 60px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    background: var(--shelf-gradient);
+    box-shadow:
+        0 4px 7px rgba(0, 0, 0, .4),
+        inset 0 2px 1px rgba(255, 255, 255, .15);
+    color: var(--gold);
+    font-size: clamp(1.25rem, 4vw, 2rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: .05em;
+    text-align: center;
+}
+
+.newsletter-month {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    margin-top: auto;
+    padding: 4px 2px;
+    text-align: center;
+    font-size: clamp(.75rem, 2.8vw, 1.25rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: .04em;
+}
+
+.newsletter-year {
+    position: relative;
+    z-index: 1;
+    padding-bottom: 5px;
+    font-size: clamp(.65rem, 2.2vw, 1rem);
+    font-weight: 700;
+    line-height: 1;
+}
+
+
+/* ---------- Shelf Front ---------- */
+
+.newsletter-shelf::after {
+    content: "";
+    display: block;
+    height: clamp(10px, 2vw, 22px);
+    background: var(--shelf-gradient);
+    border-radius: 0 0 6px 6px;
+    box-shadow: var(--shelf-shadow);
+}
+
+
+/* =====================================================
+   6. BROADCAST / RSS PAGES
+   ===================================================== */
+
+.broadcast-page {
+    min-height: 100vh;
+}
+
+
+/* ---------- Broadcast Themes ---------- */
+
+.broadcast-sermons {
+    --theme-dark: var(--blue-dark);
+    --theme-light: var(--blue-light);
+    --theme-text: var(--blue-text);
+    --theme-heading: var(--blue-heading);
+}
+
+.broadcast-idot {
+    --theme-dark: var(--green-dark);
+    --theme-light: var(--green-light);
+    --theme-text: var(--green-text);
+    --theme-heading: var(--green-heading);
+}
+
+.broadcast-mot {
+    --theme-dark: var(--orange-dark);
+    --theme-light: var(--orange-light);
+    --theme-text: var(--orange-text);
+    --theme-heading: var(--orange-heading);
+}
+
+.broadcast-page {
+    background: linear-gradient(
+        135deg,
+        var(--theme-dark) 0%,
+        var(--theme-light) 100%
+    );
+    background-color: var(--theme-dark);
+    color: var(--theme-text);
+}
+
+
+/* ---------- Broadcast Header ---------- */
+
+.broadcast-header {
+    max-width: var(--header-width);
+    margin: 0 auto var(--space-large);
+    text-align: center;
+    color: var(--theme-text);
+}
+
+.broadcast-header h1 {
+    margin-bottom: .25rem;
+    color: var(--theme-heading);
+    font-size: clamp(2rem, 7vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+}
+
+.broadcast-header h2 {
+    margin-bottom: 1rem;
+    color: var(--theme-heading);
+    font-size: clamp(1.15rem, 4vw, 1.8rem);
+    font-weight: 600;
+}
+
+.broadcast-header p {
+    max-width: 850px;
+    margin: 0 auto;
+    font-size: clamp(.95rem, 2.5vw, 1.15rem);
+}
+
+.broadcast-header a {
+    color: var(--theme-heading);
+    font-weight: 700;
+}
+
+.broadcast-header a:hover {
+    color: var(--theme-text);
+}
+
+
+/* ---------- Feed Controls ---------- */
+
+.broadcast-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto var(--space-medium);
+}
+
+.broadcast-sort {
+    appearance: none;
+    min-width: 180px;
+    padding: .75rem 1.25rem;
+    border: 1px solid var(--theme-heading);
+    border-radius: 999px;
+    background: rgba(0, 0, 0, .25);
+    color: var(--theme-heading);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, .20),
+        inset 0 1px rgba(255, 255, 255, .12);
+}
+
+.broadcast-sort:hover,
+.broadcast-sort:focus-visible {
+    background: rgba(0, 0, 0, .40);
+    outline: none;
+}
+
+
+/* ---------- RSS Feed ---------- */
+
+.broadcast-feed {
+    max-width: var(--content-width);
+    margin: 0 auto;
+}
+
+
+/* ---------- RSS Entry ---------- */
+
+.media-card {
+    display: grid;
+    grid-template-columns:
+        var(--thumbnail-width)
+        minmax(0, 1fr);
+    align-items: center;
+    gap: var(--space-medium);
+    color: var(--theme-text);
+}
+
+.broadcast-item {
+    position: relative;
+    margin-bottom: var(--space-medium);
+    padding: var(--space-medium);
+    transition:
+        transform .18s ease,
+        box-shadow .18s ease;
+}
+
+.broadcast-item:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, .27),
+        inset 0 1px rgba(255, 255, 255, .20);
+}
+
+.broadcast-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.broadcast-icon img {
+    display: block;
+    width: 100%;
+    max-width: var(--thumbnail-width);
+    height: auto;
+}
+
+.media-info {
+    min-width: 0;
+}
+
+.broadcast-content {
+.broadcast-title {
+    margin: 0 0 .35rem;
+}
+
+.broadcast-title a {
+    color: var(--theme-heading);
+    font-size: clamp(1.05rem, 3vw, 1.45rem);
+    font-weight: 800;
+    line-height: 1.25;
+    text-decoration: none;
+}
+
+.broadcast-title a:hover {
+    color: var(--theme-text);
+    text-decoration: underline;
+}
+
+.broadcast-date {
+    margin-bottom: .6rem;
+    font-size: clamp(.8rem, 2vw, .95rem);
+    font-weight: 600;
+}
+
+.broadcast-description {
+    font-size: clamp(.9rem, 2.2vw, 1.05rem);
+    line-height: 1.6;
+}
+
+.broadcast-description p:first-child {
+    margin-top: 0;
+}
+
+.broadcast-description p:last-child {
+    margin-bottom: 0;
+}
+
+.broadcast-error {
+    display: block;
+    text-align: center;
+}
+
+
+/* =====================================================
+   7. SERMONS
+   ===================================================== */
+
+.sermon-list {
+    display: grid;
+    gap: var(--space-small);
+    max-width: var(--content-width);
+    margin: 0 auto var(--space-large);
+}
+
+.sermon-card {
+    padding: var(--space-small);
+}
+
+.sermon-video-button {
+    display: block;
+    width: var(--thumbnail-width);
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-medium);
+    background: transparent;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.sermon-video-button img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.sermon-video-button:hover,
+.sermon-video-button:focus-visible {
+    transform: scale(1.03);
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}
+
+.sermon-info {
+    font-size: clamp(.9rem, 2.4vw, 1.1rem);
+}
+
+.sermon-title {
+    margin-bottom: .3rem;
+    color: var(--theme-heading);
+    font-size: clamp(1rem, 3vw, 1.35rem);
+    font-weight: 800;
+}
+
+
+
+/* =====================================================
+   8. YOUTUBE OVERLAY
+   ===================================================== */
+
+.video-overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 4vw;
+    background: rgba(0, 0, 0, .85);
+    z-index: 1000;
+}
+
+.video-overlay iframe {
+    width: min(100%, var(--content-width));
+    aspect-ratio: 16 / 9;
+    border: 0;
+    border-radius: var(--radius-medium);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, .5);
+}
+
+.video-close {
+    position: fixed;
+    top: 1rem;
+    right: 1.25rem;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: white;
+    font: inherit;
+    font-size: clamp(2rem, 6vw, 3rem);
+    line-height: 1;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+
+/* =====================================================
+   9. RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .float-image {
+        width: 30%;
+        max-width: 30%;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .newsletter-row {
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+    }
+}

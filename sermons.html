@@ -7,7 +7,7 @@
 
     <title>Cub Hill Bible Church Sunday Sermons</title>
 
-	<link rel="stylesheet" href="design-condensed-pass4.css">
+    <link rel="stylesheet" href="design-condensed-pass5.css">
 </head>
 
 
@@ -38,7 +38,7 @@
     <section class="sermon-list">
 
 
-        <article class="sermon-card">
+        <article class="media-card sermon-card">
 
             <button
                 class="sermon-video-button"
@@ -48,7 +48,7 @@
 
             </button>
 
-            <div class="sermon-info">
+            <div class="media-info sermon-info">
 
                 <div class="sermon-title">
                     "We Have Been Changed"
@@ -67,7 +67,7 @@
         </article>
 
 
-        <article class="sermon-card">
+        <article class="media-card sermon-card">
 
             <button
                 class="sermon-video-button"
@@ -77,7 +77,7 @@
 
             </button>
 
-            <div class="sermon-info">
+            <div class="media-info sermon-info">
 
                 <div class="sermon-title">
                     "The Separatists' Stand"
@@ -96,7 +96,7 @@
         </article>
 
 
-        <article class="sermon-card">
+        <article class="media-card sermon-card">
 
             <button
                 class="sermon-video-button"
@@ -106,7 +106,7 @@
 
             </button>
 
-            <div class="sermon-info">
+            <div class="media-info sermon-info">
 
                 <div class="sermon-title">
                     "Sanctified Through Truth"
@@ -125,7 +125,7 @@
         </article>
 
 
-        <article class="sermon-card">
+        <article class="media-card sermon-card">
 
             <button
                 class="sermon-video-button"
@@ -135,7 +135,7 @@
 
             </button>
 
-            <div class="sermon-info">
+            <div class="media-info sermon-info">
 
                 <div class="sermon-title">
                     "Stop Criticizing"
@@ -154,7 +154,7 @@
         </article>
 
 
-        <article class="sermon-card">
+        <article class="media-card sermon-card">
 
             <button
                 class="sermon-video-button"
@@ -164,7 +164,7 @@
 
             </button>
 
-            <div class="sermon-info">
+            <div class="media-info sermon-info">
 
                 <div class="sermon-title">
                     "Be Anxious for Nothing"
@@ -183,17 +183,17 @@
         </article>
 
 
-        <article class="sermon-card">
+        <article class="media-card sermon-card">
 
             <button
                 class="sermon-video-button"
-                onclick="openVideo('JvBdQPT_pHQ')">
+                onclick="openVideo('C9KsGQN23Bc')">
 
                 <img src="YT.png" alt="Watch sermon">
 
             </button>
 
-            <div class="sermon-info">
+            <div class="media-info sermon-info">
 
                 <div class="sermon-title">
                     "Number Your Days"
@@ -212,17 +212,17 @@
         </article>
 
 
-        <article class="sermon-card">
+        <article class="media-card sermon-card">
 
             <button
                 class="sermon-video-button"
-                onclick="openVideo('C9KsGQN23Bc')">
+                onclick="openVideo('l7IGwXXVA0Y')">
 
                 <img src="YT.png" alt="Watch sermon">
 
             </button>
 
-            <div class="sermon-info">
+            <div class="media-info sermon-info">
 
                 <div class="sermon-title">
                     "The Lord is Our Portion"
@@ -281,15 +281,14 @@
     class="video-overlay"
     id="videoOverlay">
 
-<button
-    type="button"
-    class="video-close"
-    onclick="closeVideo()"
-    aria-label="Close video">
+    <div
+        class="video-close"
+        onclick="closeVideo()"
+        aria-label="Close video">
 
-    &times;
+        &times;
 
-</button>
+    </div>
 
     <iframe
         id="youtubePlayer"
@@ -314,18 +313,11 @@ function openVideo(videoId) {
     player.src =
         `https://www.youtube.com/embed/${videoId}?autoplay=1`;
 
-	overlay.style.display = "flex";
-	document.body.style.overflow = "hidden";
+    overlay.style.display = "flex";
 }
 
 
 function closeVideo() {
-
-document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-        closeVideo();
-    }
-});
 
     const overlay =
         document.getElementById("videoOverlay");
@@ -333,10 +325,9 @@ document.addEventListener("keydown", (event) => {
     const player =
         document.getElementById("youtubePlayer");
 
-	player.src = "";
+    player.src = "";
 
-	overlay.style.display = "none";
-	document.body.style.overflow = "";
+    overlay.style.display = "none";
 }
 
 </script>
@@ -365,50 +356,16 @@ let sortNewestFirst = true;
 
 async function fetchFeed() {
 
-    const feedDiv =
-        document.getElementById("feed");
+    const response =
+        await fetch(feedUrl);
 
-    try {
+    const data =
+        await response.json();
 
-        const response =
-            await fetch(feedUrl);
+    feedItems =
+        data.items || [];
 
-        if (!response.ok) {
-            throw new Error(
-                `Feed request failed: ${response.status}`
-            );
-        }
-
-        const data =
-            await response.json();
-
-        feedItems =
-            data.items || [];
-
-        renderFeed();
-
-    } catch (error) {
-
-        console.error(
-            "Unable to load broadcast feed:",
-            error
-        );
-
-        feedDiv.innerHTML = `
-        	<div class="broadcast-item broadcast-error">
-                <div class="broadcast-content">
-                    <h3 class="broadcast-title">
-                        Unable to Load Broadcasts
-                    </h3>
-
-                    <div class="broadcast-description">
-                        The broadcast archive is temporarily
-                        unavailable. Please try again later.
-                    </div>
-                </div>
-            </div>
-        `;
-    }
+    renderFeed();
 }
 
 

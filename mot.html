@@ -7,7 +7,7 @@
 
     <title>Moment of Truth Radio Spot by Cub Hill Bible Church</title>
 
-	<link rel="stylesheet" href="design-condensed-pass4.css">
+    <link rel="stylesheet" href="design-condensed-pass5.css">
 </head>
 
 
@@ -76,50 +76,16 @@ let sortNewestFirst = true;
 
 async function fetchFeed() {
 
-    const feedDiv =
-        document.getElementById("feed");
+    const response =
+        await fetch(feedUrl);
 
-    try {
+    const data =
+        await response.json();
 
-        const response =
-            await fetch(feedUrl);
+    feedItems =
+        data.items || [];
 
-        if (!response.ok) {
-            throw new Error(
-                `Feed request failed: ${response.status}`
-            );
-        }
-
-        const data =
-            await response.json();
-
-        feedItems =
-            data.items || [];
-
-        renderFeed();
-
-    } catch (error) {
-
-        console.error(
-            "Unable to load broadcast feed:",
-            error
-        );
-
-        feedDiv.innerHTML = `
-            <<div class="broadcast-item broadcast-error">
-                <div class="broadcast-content">
-                    <h3 class="broadcast-title">
-                        Unable to Load Broadcasts
-                    </h3>
-
-                    <div class="broadcast-description">
-                        The broadcast archive is temporarily
-                        unavailable. Please try again later.
-                    </div>
-                </div>
-            </div>
-        `;
-    }
+    renderFeed();
 }
 
 
@@ -166,7 +132,7 @@ function renderFeed() {
 
         feedDiv.innerHTML += `
 
-            <article class="broadcast-item">
+            <article class="media-card broadcast-item">
 
                 <div class="broadcast-icon">
 
@@ -177,7 +143,7 @@ function renderFeed() {
                 </div>
 
 
-                <div class="broadcast-content">
+                <div class="media-info broadcast-content">
 
                     <h3 class="broadcast-title">
 

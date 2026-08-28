@@ -572,11 +572,14 @@ h4 {
     justify-content: center;
 }
 
-.broadcast-icon img {
+.media-thumbnail {
     display: block;
     width: 100%;
-    max-width: var(--thumbnail-width);
     height: auto;
+}
+
+.broadcast-icon img {
+    max-width: var(--thumbnail-width);
 }
 
 .media-info {
@@ -584,6 +587,8 @@ h4 {
 }
 
 .broadcast-content {
+}
+
 .broadcast-title {
     margin: 0 0 .35rem;
 }
@@ -652,11 +657,8 @@ h4 {
     overflow: hidden;
 }
 
-.sermon-video-button img {
-    display: block;
+.sermon-video-button .media-thumbnail {
     width: 100%;
-    height: auto;
-    margin: 0 auto;
 }
 
 .sermon-video-button:hover,

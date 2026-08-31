@@ -201,7 +201,6 @@ h4 {
 .float-image {
     float: left;
     width: 30%;
-    max-width: 30%;
     height: auto;
     margin: 0 clamp(10px, 1.5vw, 24px) clamp(8px, 1.5vw, 20px) 0;
     border-radius: clamp(10px, 1.5vw, 16px);
@@ -586,8 +585,6 @@ h4 {
     min-width: 0;
 }
 
-.broadcast-content {
-}
 
 .broadcast-title {
     margin: 0 0 .35rem;
@@ -732,7 +729,6 @@ h4 {
 
     .float-image {
         width: 30%;
-        max-width: 30%;
     }
 }
 

@@ -757,7 +757,8 @@ h4 {
     margin: 0 0 var(--space-large);
     text-align: center;
     font-size: clamp(1rem, 2.5vw, 1.2rem);
-    line-height: 1.5;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
 @media (max-width: 600px) {

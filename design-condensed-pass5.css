@@ -738,3 +738,30 @@ h4 {
         grid-template-columns: repeat(12, minmax(0, 1fr));
     }
 }
+
+/* =====================================================
+   VISIT US
+   ===================================================== */
+
+.map {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 350px;
+    border: 0;
+    border-radius: var(--radius-medium);
+    box-shadow: var(--shadow-card);
+}
+
+.visit-address {
+    margin: 0 0 var(--space-large);
+    text-align: center;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+    .map {
+        min-height: 280px;
+    }
+}

@@ -136,7 +136,6 @@ body {
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
     gap: clamp(.75rem, 3vw, 1.5rem);
-    min-height: clamp(280px, 42vw, 430px);
 }
 
 /* ---------- Six-page lists ---------- */

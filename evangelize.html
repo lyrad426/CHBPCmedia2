@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>Color Pages</title>
+
+    <!-- Shared Cub Hill Church site styles -->
+    <link rel="stylesheet" href="design-condensed-pass5.css">
+
+    <!-- Page-specific styles -->
+    <link rel="stylesheet" href="color-pages.css">
+</head>
+
+<body>
+    <main class="container color-pages-page">
+
+        <header class="color-pages-header">
+            <h1 class="page-title">Spread God's Love</h1>
+        </header>
+
+        <!-- =========================================================
+             TOP CARD — COLOR PAGES
+             ========================================================= -->
+        <section
+            class="card color-card"
+            aria-labelledby="color-card-title"
+        >
+            <div class="color-card-heading">
+                <h2 id="color-card-title">The Wordless Book</h2>
+            </div>
+
+            <div class="color-card-content">
+
+                <div class="color-page-list" id="colorPageList">
+                    <!-- Populated by color-pages.js -->
+                </div>
+
+                <button
+                    class="page-next-button"
+                    id="colorNextButton"
+                    type="button"
+                    aria-label="Show next color page"
+                >
+                    <span aria-hidden="true">&gt;</span>
+                </button>
+
+            </div>
+
+            <div
+                class="page-indicator"
+                id="colorPageIndicator"
+                aria-live="polite"
+            >
+                1 / 6
+            </div>
+        </section>
+
+
+        <!-- =========================================================
+             BOTTOM CARD — TEXT PAGES
+             ========================================================= -->
+        <section
+            class="card text-card"
+            aria-labelledby="text-card-title"
+        >
+            <div class="text-card-heading">
+                <h2 id="text-card-title">Travel Roman's Road</h2>
+            </div>
+
+            <div class="text-card-content">
+
+                <div class="text-page-list" id="textPageList">
+                    <!-- Populated by color-pages.js -->
+                </div>
+
+                <button
+                    class="page-next-button"
+                    id="textNextButton"
+                    type="button"
+                    aria-label="Show next text page"
+                >
+                    <span aria-hidden="true">&gt;</span>
+                </button>
+
+            </div>
+
+            <div
+                class="page-indicator"
+                id="textPageIndicator"
+                aria-live="polite"
+            >
+                1 / 6
+            </div>
+        </section>
+
+    </main>
+
+    <script src="color-pages.js"></script>
+</body>
+</html>

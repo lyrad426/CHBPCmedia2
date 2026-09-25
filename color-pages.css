@@ -30,13 +30,27 @@
 
 /* ---------- Page ---------- */
 
+html {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--color-page-blue);
+}
+
 .color-pages-page {
     width: min(97%, var(--content-width));
     min-height: 100vh;
     margin: 0 auto;
     padding-top: clamp(14px, 3vw, 30px);
     padding-bottom: clamp(24px, 5vw, 50px);
-    background: var(--color-page-blue);
 }
 
 /* ---------- Page heading ---------- */

@@ -136,6 +136,7 @@ body {
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
     gap: clamp(.75rem, 3vw, 1.5rem);
+    padding: clamp(1.5rem, 4vw, 3rem);
 }
 
 /* ---------- Six-page lists ---------- */
@@ -230,7 +231,6 @@ body {
     display: flex;
     align-items: center;
     padding: 0 clamp(.5rem, 2vw, 1rem);
-    border-bottom: 2px solid rgba(255, 217, 102, .72);
 }
 
 .text-page-row:last-child {
@@ -344,7 +344,6 @@ body {
     .color-card-content,
     .text-card-content {
         gap: .6rem;
-        min-height: 300px;
     }
 
     .color-page-row {
